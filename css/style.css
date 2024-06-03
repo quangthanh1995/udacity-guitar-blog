@@ -26,11 +26,29 @@ main {
 }
 
 .card {
+  position: relative;
   border: 1px solid #ddd;
   border-radius: 20px;
   overflow: hidden;
   background-color: #f4f4f4;
   transition: transform 0.3s;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f4f4f4;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card a {
@@ -39,17 +57,20 @@ main {
 
 .card:hover {
   transform: scale(1.02);
-  opacity: 0.7;
+  opacity: 0.9;
   transition: 0.5s ease;
 }
 
 .card img {
   width: 100%;
   height: auto;
+  z-index: 0;
 }
 
 .card-title {
   padding: 10px;
+  position: relative;
+  z-index: 2;
 }
 
 .card-title h2 {
@@ -70,8 +91,14 @@ main {
 }
 .short-desc {
   padding: 20px;
-  font-style: italic;
   text-overflow: ellipsis;
+  position: relative;
+  z-index: 2;
+}
+
+blockquote {
+  font-style: italic;
+  color: #81b7bd;
 }
 
 .post {
@@ -91,6 +118,27 @@ main {
 .post p {
   font-size: 16px;
   line-height: 1.6;
+}
+
+.read-more-btn {
+  display: none;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #3467a9;
+  color: #f4f4f4;
+  font-size: large;
+  font-weight: bold;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.card:hover .read-more-btn {
+  display: block;
 }
 
 @media (max-width: 768px) {
