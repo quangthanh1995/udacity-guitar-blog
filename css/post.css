@@ -53,6 +53,12 @@ aside {
   color: #f4f4f4;
 }
 
+figure {
+  max-width: 80%;
+  width: 100%;
+  height: auto;
+}
+
 .feature-image {
   display: flex;
   justify-content: center;
@@ -60,7 +66,8 @@ aside {
 }
 
 .post-image {
-  max-width: 50%;
+  width: 600px;
+  max-width: 80%;
   height: auto;
   border-radius: 20px;
 }
